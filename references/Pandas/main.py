@@ -1,13 +1,9 @@
 import pandas as pd
 
-calories = {
-    'Day 1' : 45355,
-    'Day 2' : 23413,
-    'Day 3' : 564,
-    'Day 4' : 45426
+data = {
+    'Name' : ['Joel', 'Joshua', 'Jiss'],
+    'Age' : [19, 45, 23]
 }
 
-series = pd.Series(calories)
-
-series['Day 3'] = 432;
-print(series[series > 20000])
+df = pd.DataFrame(data)
+print(df)
