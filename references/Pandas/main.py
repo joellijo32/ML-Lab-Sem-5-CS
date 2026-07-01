@@ -8,4 +8,6 @@ calories = {
 }
 
 series = pd.Series(calories)
+print(series)
+series['Day 3'] = 432;
 print(series['Day 3'])
