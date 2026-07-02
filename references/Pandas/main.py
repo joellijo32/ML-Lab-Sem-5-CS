@@ -1,4 +1,4 @@
 import pandas as pd
 
-df = pd.read_csv("references/Pandas/sample-data.csv")
-print(df.to_string())
+df = pd.read_json("references/Pandas/sample.json")
+print(df)
