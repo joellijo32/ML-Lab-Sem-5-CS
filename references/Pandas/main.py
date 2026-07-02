@@ -2,19 +2,38 @@ import pandas as pd
 
 df = pd.read_csv('references/Pandas/sample-data.csv')
 
-# Filtering
+# Aggregrate function
 
-tall_pokemon = df[df['Height'] >= 2]
-print("Tall Pokemon:\n", tall_pokemon)
+# Whole DataFrame
 
-heavy_pokemon = df[df['Weight'] > 100]
-print("\nHeavy Pokemon\n",heavy_pokemon)
+print("\nMean: \n",df.mean(numeric_only=True))
 
-legendary_pokemon = df[df['Legendary'] == True]
-print("\nLegendary Pokemon\n",legendary_pokemon);
+print("\nSum: \n", df.sum(numeric_only=True))
 
-water_pokemon = df[(df['Type1'] == 'Water') | (df['Type2'] == 'Water')] 
-print("\nWater Pokemon:\n", water_pokemon)
+print("\nMininum: \n", df.min(numeric_only=True))
 
-fire_fly_pokemon = df[(df['Type1'] == 'Fire') & (df['Type2'] == 'Flying')]
-print("\nFire and Fly Pokemon:\n", fire_fly_pokemon)
+print("\nMaximum: \n", df.max(numeric_only=True))
+
+print("\nCount: \n", df.count())
+
+# Single column
+
+print("\nHeight: \n", df['Height'].mean())
+
+print("\nSum: \n", df['Weight'].sum())
+
+print("\nMininum: \n", df['Weight'].min())
+
+print("\nMaximum: \n", df['Height'].max())
+
+print("\nCount: \n", df['Type2'].count())
+
+group = df.groupby('Type1')
+
+print("\nGroup by: \n", group['Height'].mean())
+
+print("\nSum \n", group["Height"].sum())
+
+print("\nMinimum \n", group['Weight'].min())
+
+print("\nCount \n", group["Weight"].count())
