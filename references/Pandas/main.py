@@ -1,14 +1,20 @@
 import pandas as pd
 
-df = pd.read_csv("references/Pandas/sample-data.csv", index_col='Name')
+df = pd.read_csv('references/Pandas/sample-data.csv')
 
+# Filtering
 
-# Selection by column
+tall_pokemon = df[df['Height'] >= 2]
+print("Tall Pokemon:\n", tall_pokemon)
 
-# print(df.loc["Bulbasaur":'Blastoise', [ "Height", "Weight"]])
-name = input("Enter pokemon name: ")
+heavy_pokemon = df[df['Weight'] > 100]
+print("\nHeavy Pokemon\n",heavy_pokemon)
 
-try:
-    print(df.loc[name])
-except KeyError:
-    print(f"{name} not found")
+legendary_pokemon = df[df['Legendary'] == True]
+print("\nLegendary Pokemon\n",legendary_pokemon);
+
+water_pokemon = df[(df['Type1'] == 'Water') | (df['Type2'] == 'Water')] 
+print("\nWater Pokemon:\n", water_pokemon)
+
+fire_fly_pokemon = df[(df['Type1'] == 'Fire') & (df['Type2'] == 'Flying')]
+print("\nFire and Fly Pokemon:\n", fire_fly_pokemon)
