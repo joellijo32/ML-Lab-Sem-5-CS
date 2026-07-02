@@ -2,38 +2,37 @@ import pandas as pd
 
 df = pd.read_csv('references/Pandas/sample-data.csv')
 
-# Aggregrate function
+# Drop a column
+df = df.drop(columns=['Legendary', 'No'])
+print("\nDrop a column: \n", df)
 
-# Whole DataFrame
+# Missing Data
+missing_df = df.dropna(subset=['Type2']) # Drop if missing
+print("\nMissing Data: \n", missing_df.to_string())
 
-print("\nMean: \n",df.mean(numeric_only=True))
+# Filling missing
+filling_df = df.fillna({
+    'Type2' : 'None'
+})
+print("\nFilling Data: \n", filling_df.to_string())
 
-print("\nSum: \n", df.sum(numeric_only=True))
+# Inconsistent Value fix
+df['Type1'] = df['Type1'].replace({
+    'Grass' : 'GRASS'
+})
+print("\nInconsistent fix: \n", df[df['Type1'] == 'GRASS'].to_string())
 
-print("\nMininum: \n", df.min(numeric_only=True))
+# df['Name'] = df['Name'].str.lower()
+# print("\nAll names capital: \n", df)
 
-print("\nMaximum: \n", df.max(numeric_only=True))
+# Fix data types
 
-print("\nCount: \n", df.count())
+new_df = pd.read_csv('references/Pandas/sample-data.csv')
+new_df['Legendary'] = new_df['Legendary'].astype(bool)
+print("\nData Type Change: \n", new_df)
 
-# Single column
+# duplicate data
 
-print("\nHeight: \n", df['Height'].mean())
-
-print("\nSum: \n", df['Weight'].sum())
-
-print("\nMininum: \n", df['Weight'].min())
-
-print("\nMaximum: \n", df['Height'].max())
-
-print("\nCount: \n", df['Type2'].count())
-
-group = df.groupby('Type1')
-
-print("\nGroup by: \n", group['Height'].mean())
-
-print("\nSum \n", group["Height"].sum())
-
-print("\nMinimum \n", group['Weight'].min())
-
-print("\nCount \n", group["Weight"].count())
+new_df = pd.read_csv('references/Pandas/sample-data.csv')
+new_df = df.drop_duplicates()
+print("\nNo duplicates: \n", new_df)
