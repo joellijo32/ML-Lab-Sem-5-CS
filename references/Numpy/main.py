@@ -6,6 +6,5 @@ array = np.array([
     [['a', 'g', 'f'], ['r', 't', 'e'], ['b', 'n', 'q']]
     ])
 
-print(array.ndim) # ndim: no. of dimensions
-print(array.shape) # shape: shape of the array (here: 3 x 3 x 3)
-print(array[0, 0, 2]) # multidimensional indexing
+word = array[0,1,0] + array[1,0,0] + array[2,1,1]
+print("Word:" , word)
