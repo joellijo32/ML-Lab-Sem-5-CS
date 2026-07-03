@@ -1,28 +1,35 @@
 import numpy as np
 
-# Aggregate Function
+# Filtering
 
-array = np.array([
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10]
+ages = np.array([
+    [43, 3, 62, 1, 24, 2, 62, 41],
+    [39, 12, 64, 14, 100, 61, 7, 53]
 ])
 
-print("Sum:", np.sum(array))
+teenagers = ages[(ages >= 13) & (ages <= 19)] 
 
-print("Mean:", np.mean(array))
+print("Teenagers:", teenagers)
 
-print("Standard Deviation:", np.std(array))
+adults = ages[(ages >= 18) & (ages <= 65)]
 
-print("Variance:", np.var(array))
+print("Adults:", adults)
 
-print("Mininum:", np.min(array))
+seniors = ages[ages >= 65]
 
-print("Maximum:", np.max(array))
+print("Seniors:", seniors)
 
-print("Position of min:", np.argmin(array))
+evens = ages[ages %2 == 0]
 
-print("Position of max:", np.argmax(array))
+print("evens:", evens)
 
-print("Sum of columns:", np.sum(array, axis=0))
+odds = ages[ages%2 != 0]
 
-print("Sum of rows:", np.sum(array, axis=1))
+print("odds:", odds)
+
+# Filtering with preserving shape
+# where(condition, array, fill_value)
+
+adults = np.where(ages>=18, ages, -1)
+
+print("adults:\n", adults)
