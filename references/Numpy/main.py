@@ -1,26 +1,50 @@
 import numpy as np
 
-array = np.array([
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12], 
-    [13, 14, 15, 16]
-])
+# Scalar arithmetic
 
-# array[start: end: step]
+array = np.array([1, 2, 3])
 
-print("First row:", array[0:1])
+print("Array + 3:", array+3)
 
-print("\nStep 2:\n", array[::2])
+print("Array / 2:", array/2)
 
-print("\nReverse\n", array[::-1])
+print("Array ^ 5:", array**5)
 
-print("\nReverse Step 2\n", array[::-2])
+# Vectorized math functions
 
-print("\nFirst Column\n", array[:,0])
+array = np.array([1.2, 4.6, 6.1])
 
-print("\nStep 2 Column\n", array[:, ::2])
+print("Square root:", np.sqrt(array))
 
-print("\nReverse Column\n", array[:, ::-1])
+print("Rounding:", np.round(array))
 
-print("\nFirst two rows and columns\n", array[:2, :2])
+print("Round down:", np.floor(array))
+
+print("Round up:", np.ceil(array))
+
+print("Pi:", np.pi)
+
+radii = np.array([1, 2, 3])
+
+print("Area:", (np.pi * (radii**2)))
+
+# Element-wise arithmetic
+
+array1 = np.array([1, 2, 3])
+array2 = np.array([4, 5, 6])
+
+print("Sum:", array2 + array1)
+
+print("Multiplication:", array1*array2)
+
+print("Division:", array1/array2)
+
+# Comparison operators
+
+scores = np.array([91, 33, 63, 100, 13, 71])
+
+print("Full marks:", scores==100)
+
+scores[scores<60] = 0
+
+print("Fail:", scores)
