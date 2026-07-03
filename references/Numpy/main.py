@@ -8,3 +8,4 @@ array = np.array([
 
 print(array.ndim) # ndim: no. of dimensions
 print(array.shape) # shape: shape of the array (here: 3 x 3 x 3)
+print(array[0, 0, 2]) # multidimensional indexing
