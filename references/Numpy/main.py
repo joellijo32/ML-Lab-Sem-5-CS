@@ -1,35 +1,31 @@
 import numpy as np
 
-# Filtering
+# Random numbers
 
-ages = np.array([
-    [43, 3, 62, 1, 24, 2, 62, 41],
-    [39, 12, 64, 14, 100, 61, 7, 53]
-])
+rng =  np.random.default_rng(seed=2) # Seed fixes the results once generated. (Minecraft analogy)
+np.random.seed(21)
 
-teenagers = ages[(ages >= 13) & (ages <= 19)] 
+#rng.integers(start idx, end idx (exclusive), dimensions (no. of numbers))
+print("Integer:\n", rng.integers(low=1, high=101, size=(3,3)))
 
-print("Teenagers:", teenagers)
+print("\nFloating:\n", np.random.uniform(low=-1, high=1, size=(5,2)))
 
-adults = ages[(ages >= 18) & (ages <= 65)]
 
-print("Adults:", adults)
+# Array shuffling
 
-seniors = ages[ages >= 65]
+array = np.array([1, 2, 3, 4, 5])
 
-print("Seniors:", seniors)
+print("\nArray:\n", array)
 
-evens = ages[ages %2 == 0]
+rng = np.random.default_rng()
 
-print("evens:", evens)
+rng.shuffle(array)
 
-odds = ages[ages%2 != 0]
+print("\nShuffled Array:\n", array)
 
-print("odds:", odds)
+fruits = np.array(['apple', 'orange', 'banana', 'pineapple', 'tomato'])
 
-# Filtering with preserving shape
-# where(condition, array, fill_value)
+print("\nFruits:\n", fruits)
 
-adults = np.where(ages>=18, ages, -1)
-
-print("adults:\n", adults)
+fruit = rng.choice(fruits, size=(4,4))
+print("\nChoice:\n", fruit)
