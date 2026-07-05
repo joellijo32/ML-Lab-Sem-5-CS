@@ -1,12 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-categories = np.array(['Grains', 'Fruit', 'Vegetable', 'Protein', 'Dairy', 'Sweets'])
-values = [4, 3, 2, 5, 3, 1]
+plt.style.use('dark_background')
 
-plt.title('Bar Chart', fontweight='bold')
-plt.xlabel('Categories', fontweight='bold')
-plt.ylabel('Values', fontweight='bold')
+categories = np.array(['Freshman', 'Sophomores', 'Juniors', 'Seniors'])
+values = np.array([300, 250, 275, 225])
 
-plt.bar(categories, values, color='green')
+colors= np.array(['red', 'yellow', 'blue' ,'green'])
+plt.title('Pie Chart', fontweight='bold')
+
+
+plt.pie(values, labels=categories,
+        autopct='%1.1f%%',
+        colors=colors,
+        explode=[0, 0, 0, 0.2],
+        shadow=True,
+)
 plt.show()
