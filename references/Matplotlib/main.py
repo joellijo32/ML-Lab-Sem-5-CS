@@ -1,3 +1,8 @@
-import matplotlib as plt
+import matplotlib.pyplot as plt
+import numpy as np
 
-print(plt.__version__)
+x = np.array([2023, 2024, 2025, 2026])
+y = np.array([23, 56, 3, 5])
+
+plt.plot(x, y)
+plt.show()
