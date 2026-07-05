@@ -1,28 +1,22 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 plt.style.use('dark_background')
+plt.figure(figsize=(10, 6))
 
-x = np.array([1, 2, 3, 4, 5])
+styles = {
+    'fontweight' : 'bold',
+    'fontsize' : 18
+}
 
-figure, axes = plt.subplots(2, 2)
+df = pd.read_csv('references/Pandas/sample-data.csv')
 
+counts =df['Type1'].value_counts(ascending=True)
 
-axes[0,0].plot(x, x*2,
-               color='red')
-axes[0, 0].set_title('X times 2')
-
-axes[0, 1].bar(x, x**2,
-                color='blue')
-axes[0, 1].set_title('X raise to 2')
-
-axes[1, 0].plot(x, x**3,
-                color='green')
-axes[1, 0].set_title('X raise to 3')
-
-axes[1, 1].plot(x, x**4,
-                color='green')
-axes[1, 1].set_title('X raise to 4')
-plt.tight_layout();
-
+plt.barh(counts.index, counts.values, color='gold')
+plt.xlabel('Count', **styles)
+plt.ylabel('Types', **styles)
+plt.title('No. of pokemon by type', **styles)
+plt.tight_layout()
 plt.show()
