@@ -1,30 +1,13 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.array([2023, 2024, 2025, 2026])
-y1 = np.array([23, 56, 3, 5])
-y2 = np.array([34, 7, 25, 8])
-y3 = np.array([2, 4, 6, 25])
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([10, 15, 20, 25, 30])
 
-plt.title("Simple graph", 
-        fontsize='20',
-        family='Arial',
-        fontweight='bold',
-        color='blue')
-plt.xlabel('Year', fontsize=20,
-           family='Arial',
-           color='green',
-           fontweight='bold')
-plt.ylabel('Students', fontsize=20,
-           family='Arial',
-           color='green',
-           fontweight='bold')
-plt.xticks(x)
-plt.tick_params(axis='both', colors='magenta')
+plt.title("Grid Plot")
+plt.xlabel("X axis")
+plt.ylabel('Y axis')
+plt.grid(axis='y', color='green', linestyle='-.')
 
-
-plt.plot(x, y1, marker='*', markersize='8')
-plt.plot(x, y2, marker='*', markersize='8')
-plt.plot(x, y3, marker='*', markersize='8')
-
+plt.plot(x, y, marker='*', markersize='9')
 plt.show()
