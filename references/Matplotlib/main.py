@@ -1,13 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.array([1, 2, 3, 4, 5])
-y = np.array([10, 15, 20, 25, 30])
+categories = np.array(['Grains', 'Fruit', 'Vegetable', 'Protein', 'Dairy', 'Sweets'])
+values = [4, 3, 2, 5, 3, 1]
 
-plt.title("Grid Plot")
-plt.xlabel("X axis")
-plt.ylabel('Y axis')
-plt.grid(axis='y', color='green', linestyle='-.')
+plt.title('Bar Chart', fontweight='bold')
+plt.xlabel('Categories', fontweight='bold')
+plt.ylabel('Values', fontweight='bold')
 
-plt.plot(x, y, marker='*', markersize='9')
+plt.bar(categories, values, color='green')
 plt.show()
