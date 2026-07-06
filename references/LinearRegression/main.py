@@ -24,6 +24,9 @@ plt.scatter(x, y, marker='*', s=100)
 reg = linear_model.LinearRegression()
 reg.fit(df[['area']], y)
 
-print(reg.predict(np.array([[3300]])))
+print(reg.predict(np.array([[5000]])))
+print(reg.coef_) # m from y = mx + b
+print(reg.intercept_) # b from y = mx + b
+print(reg.coef_ * 5000 + reg.intercept_)
 plt.tight_layout()
 plt.show()
