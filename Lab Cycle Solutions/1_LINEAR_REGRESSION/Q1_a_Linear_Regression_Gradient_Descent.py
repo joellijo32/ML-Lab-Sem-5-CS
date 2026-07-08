@@ -5,6 +5,7 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import SGDRegressor
+from sklearn.metrics import mean_squared_error
 
 california = fetch_california_housing()
 
@@ -33,7 +34,10 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
 
+mse = mean_squared_error(y_test, y_pred)
+
 print("\nGradient Descent\n")
 print("Intercept:", model.intercept_[0])
 print("Coefficient:", model.coef_[0])
+print("Mean Squared Error:", mse)
 
