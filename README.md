@@ -1,6 +1,6 @@
 # ML-Lab-Sem-5-CS
 
-Machine Learning Lab coursework for Semester 5 (CS). This repository contains lab cycle solutions, some reference materials for Python data-science libraries, and solutions for the lab cycle questions.
+Machine Learning Lab coursework for Semester 5 (CS). This repository contains lab cycle solutions and some reference materials for Python data-science libraries.
             
 ## Getting Started
 
