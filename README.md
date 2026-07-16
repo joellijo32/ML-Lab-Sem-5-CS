@@ -50,4 +50,7 @@ Jupyter notebooks under `references/Matplotlib/` can be opened with Jupyter Note
 jupyter notebook "references/Matplotlib/Matplotlib.ipynb"
 ```
 
-Made by Joel Lijo Mathew.       
+## Contributors.....❤️
+
+1. [Abhishek V](https://github.com/Abhishek-060419)
+2. [Joel Lijo Mathew](https://github.com/joellijo32)
