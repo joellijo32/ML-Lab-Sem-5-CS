@@ -22,8 +22,8 @@ df['Type1'] = df['Type1'].replace({
 })
 print("\nInconsistent fix: \n", df[df['Type1'] == 'GRASS'].to_string())
 
-# df['Name'] = df['Name'].str.lower()
-# print("\nAll names capital: \n", df)
+df['Name'] = df['Name'].str.lower()
+print("\nAll names capital: \n", df)
 
 # Fix data types
 
