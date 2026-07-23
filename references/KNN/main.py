@@ -3,7 +3,7 @@ from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 
 iris = load_iris()
 df = pd.DataFrame(iris.data, columns=iris.feature_names)
@@ -16,7 +16,7 @@ df1 = df[df.target == 1]
 df2 = df[100:]
 
 # Plotting all three classes
-'''
+
 x0 = df0['sepal length (cm)']
 y0 = df0['sepal width (cm)']
 
@@ -34,7 +34,6 @@ plt.scatter(x2, y2, label='df2', alpha=0.7, s=100)
 plt.legend()
 plt.tight_layout()
 plt.show()
-'''
 
 # Train test split
 
@@ -52,4 +51,6 @@ print("Prediction score:", score)
 
 y_pred = knn.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
-print(cm)
+cr = classification_report(y_test, y_pred)
+print("\nConfusion matrix:\n", cm)
+print("\nClassification Report:\n", cr)
