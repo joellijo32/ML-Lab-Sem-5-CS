@@ -14,7 +14,7 @@ df1 = df[df.target == 1]
 df2 = df[100:]
 
 # Plotting all three classes
-
+'''
 x0 = df0['sepal length (cm)']
 y0 = df0['sepal width (cm)']
 
@@ -32,4 +32,10 @@ plt.scatter(x2, y2, label='df2', alpha=0.7, s=100)
 plt.legend()
 plt.tight_layout()
 plt.show()
+'''
 
+# Train test split
+
+x = df.drop(['target'], axis='columns')
+y = df.target
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
