@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
 
 iris = load_iris()
 df = pd.DataFrame(iris.data, columns=iris.feature_names)
@@ -31,7 +32,4 @@ plt.scatter(x2, y2, label='df2', alpha=0.7, s=100)
 plt.legend()
 plt.tight_layout()
 plt.show()
-
-
-
 
