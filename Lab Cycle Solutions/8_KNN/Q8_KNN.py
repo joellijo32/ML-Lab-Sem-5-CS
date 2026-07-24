@@ -11,13 +11,14 @@ import time
 X_train=X_train/255.0
 X_test=X_test/255.0
 
-#convert into 1 dimension
+# convert into 1 dimension
 X_train=X_train.reshape(len(X_train),-1)
 X_test=X_test.reshape(len(X_test),-1)
 
-#take only the first 5000data
+# take only the first 5000 data
 X_train=X_train[:5000]
 y_train=y_train[:5000]
+# take only the first 1000 data
 X_test=X_test[:1000]
 y_test=y_test[:1000]
 
