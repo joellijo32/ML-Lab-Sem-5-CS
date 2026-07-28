@@ -8,17 +8,18 @@ from sklearn.preprocessing import StandardScaler
 
 def gradient_descent(x, y):
     m_curr = b_curr = 0
-    iterations = 1000
+    iterations = 10000
     n = len(x)
-    learning_rate = 0.0001
+    learning_rate = 0.001
     y_pred = 0
     for i in range(iterations):
         y_pred = m_curr*x + b_curr
+        cost = (1/n) * sum([val**2 for val in (y-y_pred)])
         m_deriv = -(2/n)*sum(x*(y-y_pred))
         b_deriv = -(2/n)*sum(y-y_pred)
         m_curr = m_curr - learning_rate*(m_deriv)
         b_curr = b_curr - learning_rate*(b_deriv)
-        print(f"m: {m_curr} b: {b_curr} iteration: {i}")
+        print(f"m: {m_curr} b: {b_curr} cost: {cost} iteration: {i}")
     plt.scatter(x, y)
     plt.plot(x, y_pred)
     plt.show()
