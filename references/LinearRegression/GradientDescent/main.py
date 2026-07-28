@@ -25,7 +25,11 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
 
-plt.scatter(X_test, y_test)
+plt.scatter(X_test, y_test, s=90, alpha=0.6, color='green')
+plt.xlabel("AveRooms")
+plt.ylabel("MedHouseVal")
+plt.plot(X_test, y_pred, color="blue", linewidth=3)
+plt.title("Linear Regression: Gradient Descent")
 plt.show()
 
 
