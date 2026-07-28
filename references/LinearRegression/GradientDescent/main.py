@@ -6,30 +6,31 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
+def gradient_descent(x, y):
+    m_curr = b_curr = 0
+    iterations = 1000
+    n = len(x)
+    learning_rate = 0.0001
+    y_pred = 0
+    for i in range(iterations):
+        y_pred = m_curr*x + b_curr
+        m_deriv = -(2/n)*sum(x*(y-y_pred))
+        b_deriv = -(2/n)*sum(y-y_pred)
+        m_curr = m_curr - learning_rate*(m_deriv)
+        b_curr = b_curr - learning_rate*(b_deriv)
+        print(f"m: {m_curr} b: {b_curr} iteration: {i}")
+    plt.scatter(x, y)
+    plt.plot(x, y_pred)
+    plt.show()
+    
+
+
 data = fetch_california_housing()
 df = pd.DataFrame(data.data, columns=data.feature_names)
 df['MedHouseVal'] = data.target
 
-X = np.array(df['AveRooms'][:1000])
-y = np.array(df['MedHouseVal'][:1000])
-X = X.reshape(-1, 1)
+X = np.array(df['AveRooms'][:10])
+y = np.array(df['MedHouseVal'][:10])
+# X = X.reshape(-1, 1)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-
-model = LinearRegression()
-model.fit(X_train, y_train)
-
-y_pred = model.predict(X_test)
-
-plt.scatter(X_test, y_test, s=90, alpha=0.6, color='green')
-plt.xlabel("AveRooms")
-plt.ylabel("MedHouseVal")
-plt.plot(X_test, y_pred, color="blue", linewidth=3)
-plt.title("Linear Regression: Gradient Descent")
-plt.show()
-
-
+gradient_descent(X, y)
