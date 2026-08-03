@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 from sklearn.datasets import fetch_california_housing
 from sklearn.linear_model import LinearRegression, SGDRegressor
 from sklearn.metrics import mean_squared_error, r2_score
@@ -48,17 +49,14 @@ print("Intercept:", model_lr.intercept_)
 print("Coefficient:", model_lr.coef_[0])
 print("Mean Squared Error:", mse_lr)
 print("R Squared (R²):", r2_lr)
-'''
-# Sort values to ensure the regression line plots smoothly without zig-zags
-sort_idx = X_test.flatten().argsort()
-X_plot = X_test[sort_idx]
-y_plot_sgd = y_pred_sgd[sort_idx]
-y_plot_lr = y_pred_lr[sort_idx]
-'''
+
+X_test_sorted = np.array(X_test['AveRooms'])
+sort_idx = X_test_sorted.argsort()
+
 plt.figure(figsize=(10, 5))
-plt.scatter(X_test, y_test, alpha=0.4, s=50, color="magenta", label="Actual Test Data")
-plt.plot(X_test, y_pred_sgd, linewidth=3, color="green", linestyle="--", label="SGD Prediction")
-plt.plot(X_test, y_pred_lr, linewidth=1.5, color="blue", label="Normal Equation Prediction")
+plt.scatter(X_test_sorted, y_test, alpha=0.4, s=50, color="red", label="Actual Test Data")
+plt.plot(X_test_sorted[sort_idx], y_pred_sgd[sort_idx], linewidth=3, color="green", linestyle="--", label="SGD Prediction")
+plt.plot(X_test_sorted[sort_idx], y_pred_lr[sort_idx], linewidth=1.5, color="blue", label="Normal Equation Prediction")
 
 plt.xlabel("Average Rooms (AveRooms)")
 plt.ylabel("Median House Value (MedHouseVal)")
