@@ -26,7 +26,6 @@ for i in range(3,10):
   start_time=time.time()
   K=KNeighborsClassifier(n_neighbors=i,metric='euclidean')
 
-
   P=K.fit(X_train,y_train)
   Y=P.predict(X_test)
   print(f"K value :{i}")
