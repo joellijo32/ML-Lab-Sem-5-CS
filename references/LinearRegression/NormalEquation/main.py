@@ -30,6 +30,6 @@ y_pred= reg.predict(X)
 print(f"R2 score: {r2_score(y, y_pred)}")
 regSK = LinearRegression()
 regSK.fit(X, y)
-y_predSK= reg.predict(X)
+y_predSK= regSK.predict(X)
 print(f"R2 score: {r2_score(y, y_predSK)}")
 
