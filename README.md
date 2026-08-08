@@ -54,3 +54,4 @@ jupyter notebook "references/Matplotlib/Matplotlib.ipynb"
 
 1. [Abhishek V](https://github.com/Abhishek-060419)
 2. [Joel Lijo Mathew](https://github.com/joellijo32)
+3. [Naveen S](https://github.com/NaveenS-cool)
