@@ -1,11 +1,21 @@
-import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import fetch_california_housing
 
-california = fetch_california_housing()
-df = pd.DataFrame(california.data, columns=california.feature_names)
-df['MedHouseVal'] = pd.Series(california.target)
+class LinearRegressionClosed:
+	def __init__(self):
+		self.coef_ = None
+		self.intercept_ = 0.0
+	def fit(self, X, y):
+		X = np.array(X)
+		y = np.array(y)
 
-print(df.head())
+		Xb = np.c_[np.ones((X.shape[0], 1)), X]
+		A = np.linalg.inv(Xb.T @ Xb) @ Xb.T @ y
+		self.intercept_ = A[0]
+		self.coef_ = A[1:]
+
+	def predict(self, X):
+		X = np.array(X)
+		return X @ self.coef_ + self.intercept_
 
 
