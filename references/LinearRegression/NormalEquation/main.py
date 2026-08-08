@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.datasets import fetch_california_housing
+from sklearn.metrics import r2_score
+from sklearn.linear_model import LinearRegression
 
 class LinearRegressionClosed:
 	def __init__(self):
@@ -18,4 +21,15 @@ class LinearRegressionClosed:
 		X = np.array(X)
 		return X @ self.coef_ + self.intercept_
 
+
+
+reg = LinearRegressionClosed()
+X, y = fetch_california_housing(return_X_y=True)
+reg.fit(X, y)
+y_pred= reg.predict(X)
+print(f"R2 score: {r2_score(y, y_pred)}")
+regSK = LinearRegression()
+regSK.fit(X, y)
+y_predSK= reg.predict(X)
+print(f"R2 score: {r2_score(y, y_predSK)}")
 
