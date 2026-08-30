@@ -6,6 +6,16 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score
 
 online_retail = fetch_ucirepo(id=352) # id of online retail dataset= 352
-print(online_retail.metadata)
 
-print(online_retail.variables)
+df = df.dropna(subset=["CustomerID"])
+df = df[df["Quantity"] >= 0]
+df["TotalAmount"] = df["Quantity"] * df["UnitPrice"]
+
+customer = df.groupby("CustomerID").add({
+	"Quantity" : "sum",
+	"UnitPrice" : "mean",
+	"InvoiceNo" : "nunique",
+	"TotalAmount" : "sum"
+})
+
+
