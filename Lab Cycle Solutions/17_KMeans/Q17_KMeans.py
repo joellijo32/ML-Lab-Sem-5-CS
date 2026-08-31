@@ -1,0 +1,22 @@
+import pandas as pd
+from sklearn.datasets import load_digits
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+
+
+data = load_digits()
+X = data.data
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+ks = [5, 8, 10, 12, 15]
+
+for k in ks:
+    model = KMeans(n_clusters=k, random_state=42, n_init=10)
+
+    labels = model.fit_predict(X_scaled)
+
+    print(f"\nK = {k}")
+    print(f"Silhouette Score  = {silhouette_score(X_scaled, labels): .4f}")
